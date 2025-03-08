@@ -52,8 +52,8 @@ function Header() {
           README.md
         </code>{" "}
         file to get started.
+        <SpeedInsights />
       </p>
-      <SpeedInsights />
     </header>
   );
 }
