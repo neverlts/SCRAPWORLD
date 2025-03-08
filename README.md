@@ -1,4 +1,4 @@
-![tw-banner](https://github.com/neverlts/SCRAPWORLD/public/SCRAPWORLD.svg)
+![scrapworld logo](https://github.com/neverlts/SCRAPWORLD/public/SCRAPWORLD.svg)
 
 # 🚀 ScrapWorld - Déploiement avec Vercel
 
