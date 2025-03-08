@@ -53,6 +53,7 @@ function Header() {
         </code>{" "}
         file to get started.
       </p>
+      <SpeedInsights />
     </header>
   );
 }
@@ -95,7 +96,7 @@ function ArticleCard(props: {
       <article>
         <h2 className="text-lg font-semibold mb-2">{props.title}</h2>
         <p className="text-sm text-zinc-400">{props.description}</p>
-        <SpeedInsights />
+
       </article>
     </a>
   );
