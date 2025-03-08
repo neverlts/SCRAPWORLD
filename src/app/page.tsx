@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ConnectButton } from "thirdweb/react";
 import thirdwebIcon from "@public/thirdweb.svg";
 import { client } from "./client";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function Home() {
   return (
@@ -94,6 +95,7 @@ function ArticleCard(props: {
       <article>
         <h2 className="text-lg font-semibold mb-2">{props.title}</h2>
         <p className="text-sm text-zinc-400">{props.description}</p>
+        <SpeedInsights />
       </article>
     </a>
   );
