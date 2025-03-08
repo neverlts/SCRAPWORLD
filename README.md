@@ -13,16 +13,16 @@ Toutes les modifications poussées sur la branche `main` déclenchent un **dépl
 ### --> Synchroniser des modifications depuis GitHub ou Vercel
 
 ```bash
-    git pull origin main --rebase
+git pull origin main --rebase
 ```
 
 
 ### --> Synchroniser des modifications depuis Fichier
 
 ```bash
-    git add .
-    git commit -m "Initial commit with Thirdweb setup"
-    git push origin main
+git add .
+git commit -m "Initial commit with Thirdweb setup"
+git push origin main
 ```
 
 
