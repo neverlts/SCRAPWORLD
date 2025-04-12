@@ -12,6 +12,9 @@ import {
   relayerUrlConst,
   clientIdConst,
 } from "./consts/parameters";
+import { injectSpeedInsights } from '@vercel/speed-insights';
+ 
+injectSpeedInsights();
 
 const container = document.getElementById("root");
 const root = createRoot(container!);

@@ -17,6 +17,7 @@
     "@thirdweb-dev/chains": "^0.1",
     "@thirdweb-dev/react": "^4",
     "@thirdweb-dev/sdk": "^4",
+    "@vercel/speed-insights": "^1.2.0",
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
     "ethers": "^5",
