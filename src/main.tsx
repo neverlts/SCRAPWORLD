@@ -12,9 +12,7 @@ import {
   relayerUrlConst,
   clientIdConst,
 } from "./consts/parameters";
-import { injectSpeedInsights } from '@vercel/speed-insights';
- 
-injectSpeedInsights();
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const container = document.getElementById("root");
 const root = createRoot(container!);
@@ -36,6 +34,7 @@ root.render(
     <ThirdwebProvider activeChain={chain} sdkOptions={sdkOptions} clientId={clientId}>
       <Toaster />
       <App />
+      <SpeedInsights />
     </ThirdwebProvider>
   </React.StrictMode>,
 );

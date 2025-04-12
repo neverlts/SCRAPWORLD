@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./public/SCRAPWORLD.svg" alt="ScrapWorld Logo" width="100%">
+  <img src="./src/SCRAPWORLD.svg" alt="ScrapWorld Logo" width="100%">
 </p>
 
 <br>
