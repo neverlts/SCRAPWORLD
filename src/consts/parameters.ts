@@ -1,4 +1,4 @@
-import { Sepolia } from '@thirdweb-dev/chains';
+import { sepolia } from "thirdweb/chains";
 
 /** Change these values to configure the application for your own use. **/
 
@@ -8,7 +8,7 @@ export const contractConst = "0xA6cCD88f0c697709e3b1a975a05f23E02b03543d";
 
 // The name of the chain your contract is deployed to.
 // Refer to README.md on how to specify the chain name.
-export const chainConst = Sepolia;
+export const chainConst = sepolia
 
 // It is IMPORTANT to provide your own API key to use the thirdweb SDK and infrastructure.
 // Please ensure that you define the correct domain for your API key from the API settings page.

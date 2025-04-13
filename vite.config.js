@@ -13,4 +13,7 @@ export default defineConfig({
     "process.env": {},
   },
   base: "./",
+  alias: {
+    "@": "/src",
+  },
 });

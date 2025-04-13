@@ -1,5 +1,4 @@
 import {
-  ConnectWallet,
   detectContractFeature,
   useActiveClaimConditionForWallet,
   useAddress,
@@ -25,6 +24,9 @@ import {
   primaryColorConst,
   themeConst,
 } from "./consts/parameters";
+import ConnectButtonAuth from "./components/ConnectButtonAuth";
+import { useEffect } from "react";
+import supabase from "./utils/supabase";
 
 const urlParams = new URL(window.location.toString()).searchParams;
 const contractAddress = urlParams.get("contract") || contractConst || "";
@@ -303,7 +305,7 @@ export default function Home() {
 
   return (
     <div className="w-screen min-h-screen">
-      <ConnectWallet className="!absolute !right-4 !top-4" theme={theme} />
+      <ConnectButtonAuth theme={theme} />
       <div className="grid h-screen grid-cols-1 lg:grid-cols-12">
         <div className="items-center justify-center hidden w-full h-full lg:col-span-5 lg:flex lg:px-12">
           <HeadingImage
@@ -495,3 +497,28 @@ export default function Home() {
     </div>
   );
 }
+
+function Page() {
+  const [todos, setTodos] = useState<any[]>([])
+
+  useEffect(() => {
+    async function getTodos() {
+      const { data: todos } = await supabase.from('todos').select()
+
+      if (todos && todos.length > 1) {
+        setTodos(todos)
+      }
+    }
+
+    getTodos()
+  }, [])
+
+  return (
+    <div>
+      {todos.map((todo) => (
+        <li key={todo}>{todo}</li>
+      ))}
+    </div>
+  )
+}
+export { Page }
