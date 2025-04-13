@@ -46,41 +46,45 @@ function ConnectButtonAuth() {
         sponsorGas: true,
       }}
       auth={{
-        // Étape 1 : récupérer le message de login
-        getLoginPayload: async ({ address }) => {
-          return get({
-            url: "/api/auth/login",
-            params: {
-              address,
-              chainId: chainConst.id.toString(),
-            },
+        getLoginPayload: async ({ address, chainId }) => {
+          const res = await fetch(import.meta.env.VITE_SUPABASE_LOGIN_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ address, chainId }),
           });
-        },
       
-        // Étape 2 : envoyer la signature pour vérification
-        doLogin: async (params) => {
-          await post({
-            url: "/api/auth/login",
-            params,
-          });
-        },
+          if (!res.ok) {
+            throw new Error("Erreur lors de la connexion avec Supabase");
+          }
       
-        // Étape 3 : vérifier si l'utilisateur est connecté
+          const data = await res.json();
+          return {
+            domain: data.domain,
+            address: data.address,
+            statement: data.statement,
+            uri: data.uri,
+            version: data.version,
+            chainId: data.chainId,
+            nonce: data.nonce,
+            issued_at: data.issuedAt,
+            expiration_time: data.expirationTime,
+            invalid_before: data.notBefore,
+            resources: data.resources,
+          };
+        },
+        doLogin: async () => {
+          // Tu peux ajouter une logique locale ici si tu veux stocker un token ou des infos utilisateur
+          console.log("Utilisateur connecté.");
+        },
         isLoggedIn: async () => {
-          const res = await get({
-            url: "/api/auth/isLoggedIn",
-          });
-      
-          return res?.loggedIn === true;
+          // On peut ajouter une vérification locale plus tard (par exemple un cookie ou un localStorage)
+          return true;
         },
-      
-        // Étape 4 : déconnexion (supprime le cookie côté backend)
         doLogout: async () => {
-          await post({
-            url: "/api/auth/logout",
-          });
+          // On vide le localStorage ou les cookies s’il y a des infos stockées
+          console.log("Utilisateur déconnecté.");
         },
-      }}      
+      }}       
     />
   );
 }
